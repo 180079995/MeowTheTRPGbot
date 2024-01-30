@@ -190,6 +190,8 @@ async def laserbeam(ctx: interactions.SlashContext ):
     for i in range(5):
         lasers.append(await ctx.channel.send("```                                ||           ||\n```"*(length//5)))
     lasers.append(await ctx.channel.send("```                                ||           || \n                               ||             ||\n                              ||               ||\n                             ||                 ||\n                              ||               ||\n                               |||           |||\n                                 |||||||||||||\n\n```"))
+    #send Dead.png
+    lasers.append( await ctx.channel.send(file=interactions.File(r"files\Dead.png", file_name="Dead.png")))
 
 @interactions.slash_command(
     name="deletelaser",
@@ -200,3 +202,4 @@ async def deletelaser(ctx: interactions.SlashContext ):
     while lasers:
         await lasers.pop().delete()
     await ctx.send("Clear!",ephemeral=True)
+    await ctx.channel.send(file=interactions.File(r"files\Tomb.png", file_name="Tomb.png"))
